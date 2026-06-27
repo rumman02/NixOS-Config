@@ -2,6 +2,10 @@
 
   imports = [
     ./hardware-configuration.nix
+    ../../stylix
+    ../../stylix/host.nix
+    ../../vm/host.nix
+    ../../wrap/host.nix
   ];
 
   boot.loader.grub = {
@@ -13,6 +17,7 @@
   };
 
   boot.kernelModules = [ "uinput" "i2c-dev" ];
+  boot.supportedFilesystems = [ "ntfs" "hfsplus" ];
 
   networking.hostName = hostname;
   networking.networkmanager.enable = true;
@@ -63,10 +68,31 @@
 
   fonts = {
     fontDir.enable = true;
-    packages = with pkgs; [
-      nerd-fonts.jetbrains-mono
-      noto-fonts-color-emoji
+    packages = let
+      mkFont = { name, src, unpack ? true }: pkgs.stdenv.mkDerivation {
+        inherit name src;
+        dontUnpack = !unpack;
+        installPhase = ''
+      mkdir -p $out/share/fonts
+      cp -r * $out/share/fonts/
+      '';
+      };
+    in [
+      (mkFont { name = "TX-02"; src = ../../fonts/TX-02/Regular; })
+      (mkFont { name = "Bengali"; src = ../../fonts/Bengali; })
+      pkgs.nerd-fonts.jetbrains-mono
+      pkgs.noto-fonts-color-emoji
     ];
+    fontconfig = {
+      enable = true;
+      antialias = true;
+      defaultFonts = {
+        sansSerif = [ "TX-02" "Noto Sans Bengali SemiCondensed" "JetBrainsMono Nerd Font Propo" ];
+        serif = [ "TX-02" "Noto Sans Bengali SemiCondensed" "JetBrainsMono Nerd Font Propo" ];
+        monospace = [ "TX-02" "JetBrainsMono Nerd Font Propo" ];
+        emoji = [ "Noto Color Emoji" "JetBrainsMono Nerd Font Propo" ];
+      };
+    };
   };
 
   programs.hyprland = {
@@ -77,6 +103,11 @@
 
   programs.zsh.enable = true;
 
+  programs.nix-ld = {
+    enable = true;
+    libraries = [ ];
+  };
+
   xdg.portal = {
     enable = true;
     wlr.enable = true;
@@ -84,6 +115,10 @@
 
   environment.systemPackages = with pkgs; [
     fzf git neovim tree yazi unzip xdg-user-dirs
+    (catppuccin-sddm.override {
+      flavor = "mocha";
+      loginBackground = true;
+    })
   ];
 
   time.timeZone = "Asia/Dhaka";
