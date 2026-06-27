@@ -1,0 +1,95 @@
+# ~/.config/ghostty/config
+# Generated from nix ghostty.nix configuration
+
+# Font settings
+font-family = TX-02
+font-size = 13
+
+# Window settings
+background-opacity = 1
+background-blur = false
+window-theme = auto
+window-colorspace = display-p3
+window-padding-balance = true
+window-padding-color = background
+# window-decoration = none
+
+# Cursor settings
+cursor-style-blink = false
+adjust-cursor-thickness = 1
+mouse-hide-while-typing = true
+
+# Terminal behavior
+shell-integration-features = no-cursor
+resize-overlay = never
+quick-terminal-position = top
+quick-terminal-screen = main
+scrollback-limit = 10000
+confirm-close-surface = false
+
+# # Essential keybindings
+# keybind = [
+# 	"ctrl+shift+c=copy_to_clipboard"
+# 	"ctrl+shift+v=paste_from_clipboard"
+# 	
+# 	# Number keys (0-9) with modifiers
+# 	"ctrl+0=text:\x1b[48;5u"
+# 	"ctrl+1=text:\x1b[49;5u"
+# 	"ctrl+2=text:\x1b[50;5u"
+# 	"ctrl+3=text:\x1b[51;5u"
+# 	"ctrl+4=text:\x1b[52;5u"
+# 	"ctrl+5=text:\x1b[53;5u"
+# 	"ctrl+6=text:\x1b[54;5u"
+# 	"ctrl+7=text:\x1b[55;5u"
+# 	"ctrl+8=text:\x1b[56;5u"
+# 	"ctrl+9=text:\x1b[57;5u"
+# 	
+# 	"ctrl+shift+0=text:\x1b[48;6u"
+# 	"ctrl+shift+1=text:\x1b[49;6u"
+# 	"ctrl+shift+2=text:\x1b[50;6u"
+# 	"ctrl+shift+3=text:\x1b[51;6u"
+# 	"ctrl+shift+4=text:\x1b[52;6u"
+# 	"ctrl+shift+5=text:\x1b[53;6u"
+# 	"ctrl+shift+6=text:\x1b[54;6u"
+# 	"ctrl+shift+7=text:\x1b[55;6u"
+# 	"ctrl+shift+8=text:\x1b[56;6u"
+# 	"ctrl+shift+9=text:\x1b[57;6u"
+# 	
+# 	"alt+shift+comma=text:\x1b[44;4u"
+# 	"alt+shift+period=text:\x1b[46;4u"
+# 	"alt+shift+slash=text:\x1b[47;4u"
+# 	"alt+shift+semicolon=text:\x1b[59;4u"
+# 	
+# 	# Punctuation keys
+# 	"ctrl+comma=text:\x1b[44;5u"
+# 	"ctrl+period=text:\x1b[46;5u"
+# 	"ctrl+slash=text:\x1b[47;5u"
+# 	"ctrl+semicolon=text:\x1b[59;5u"
+# 	"ctrl+apostrophe=text:\x1b[39;5u"
+# 	"ctrl+left_bracket=text:\x1b[91;5u"
+# 	"ctrl+right_bracket=text:\x1b[93;5u"
+# 	"ctrl+backslash=text:\x1b[92;5u"
+# 	"ctrl+minus=text:\x1b[45;5u"
+# 	"ctrl+equal=text:\x1b[61;5u"
+# 	
+# 	# Special keys
+# 	"ctrl+enter=text:\x1b[13;5u"
+# 	"ctrl+tab=text:\x1b[9;5u"
+# 	"ctrl+shift+enter=text:\x1b[13;6u"
+# 	"ctrl+alt+enter=text:\x1b[13;7u"
+# 	
+# 	# F1-F4 examples (extend as needed)
+# 	"shift+f1=text:\x1b[11;2~"
+# 	"shift+f2=text:\x1b[12;2~"
+# 	"shift+f3=text:\x1b[13;2~"
+# 	"shift+f4=text:\x1b[14;2~"
+# 	
+# 	"f1=text:\x1b[11~"
+# 	"f2=text:\x1b[12~"
+# 	"f3=text:\x1b[13~"
+# 	"f4=text:\x1b[14~"
+# ]
+
+# Custom shader (create shaders/ directory in ~/.config/ghostty/)
+custom-shader = shaders/cursor_smear_fade.glsl
+
