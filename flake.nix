@@ -1,5 +1,5 @@
 {
-  description = "NixOS Configuration";
+  description = "Ultimate Nixos Configuration";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -7,6 +7,15 @@
 
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # nixcat (neovim manager by nix)
+    nixCats.url = "github:BirdeeHub/nixCats-nvim";
+
+    # stylix
+    stylix = {
+      url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
