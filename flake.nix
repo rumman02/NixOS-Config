@@ -107,5 +107,30 @@
             ++ modules;
         };
     in {
+    nixosConfigurations = {
+      # host 1
+      rumman_dp = mkSystem rec {
+        username = "rumman";
+        hostname = "rumman_dp";
+        homedir = "/home/${username}";
+        configdir = "${homedir}/nixos-config";
+        modules = [
+              inputs.stylix.nixosModules.stylix
+        ];
+      };
     };
+
+    homeConfigurations = {
+      # home 1
+      rumman = mkHome rec {
+        username = "rumman";
+        hostname = "rumman_dp";
+        homedir = "/home/${username}";
+        configdir = "${homedir}/nixos-config";
+        modules = [
+              inputs.stylix.homeModules.stylix
+        ];
+      };
+    };
+  };
 }
