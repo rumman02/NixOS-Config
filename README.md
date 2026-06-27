@@ -27,6 +27,8 @@ If you already cloned without submodules:
 git submodule update --init --recursive
 ```
 
+**Without submodules, the build will fail** — `fonts/NixOS-Paid-Fonts/` will be empty and TX-02 / SF Pro Display won't be found.
+
 **Note:** You need access to the private `NixOS-Paid-Fonts` repo. Authenticate via SSH key or `gh auth login` before running the submodule update.
 
 Then build with your usual `nixos-rebuild` or `home-manager` command.
