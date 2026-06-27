@@ -1,0 +1,3 @@
+[submodule "fonts/NixOS-Paid-Fonts"]
+	path = fonts/NixOS-Paid-Fonts
+	url = https://github.com/rumman02/NixOS-Paid-Fonts.git

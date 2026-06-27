@@ -78,7 +78,7 @@
       '';
       };
     in [
-      (mkFont { name = "TX-02"; src = ../../fonts/TX-02/Regular; })
+      (mkFont { name = "TX-02"; src = ../../fonts/NixOS-Paid-Fonts/TX-02/Regular; })
       (mkFont { name = "Bengali"; src = ../../fonts/Bengali; })
       pkgs.nerd-fonts.jetbrains-mono
       pkgs.noto-fonts-color-emoji
